@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "ES2022",
+      "outDir": "javascript",
+      "removeComments": false,
+      "sourceMap": true,
+      "noEmitOnError": true,
+      "alwaysStrict": true,
+      "allowUnreachableCode": false,
+    },
+    // "include": ["src/**/*"],
+    // "exclude": ["**/*.spec.ts"]
+  }
