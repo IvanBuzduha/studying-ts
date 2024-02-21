@@ -1,4 +1,54 @@
 /////////////////////////////////////////////////////
+//object
+// const user: { name: string; email: string } = {
+//   name: "John",
+//   email: "john@gmail.com"
+// };
+// console.log("user: ", user);
+// console.log("user: ", user.name);
+// console.log("user: ", user["email"]);
+// //user.password = "rrtre"; //error
+// user.name = "Linda";
+// //user.name = 33; //error
+// console.log("user: ", user);
+
+//optional properties
+
+const user2: { name: string; email: string; age?: number } = {
+  name: "John",
+  email: "john@gmail.com"
+  //age: 33
+};
+
+console.log("user2: ", user2);
+//console.log("user2: ", user2.test); //error
+if ("test" in user2) {
+  console.log(1);
+} else console.log(0);
+//references to optional properties
+
+console.log("user2: ", user2.age); //user2:  undefined
+
+//object as a function argument
+function userProcess(some_var: { name: string; email: string }): void {
+  console.log("userProcess: ", some_var);
+}
+const obj: { name: string; email: string; test: boolean } = {
+  name: "John",
+  email: "LInda@gmail.com",
+  test: false
+};
+userProcess(user2);
+userProcess(obj);
+//userProcess({ name: "John", email: "LInda@gmail.com", test: false }); //error
+userProcess({ name: "Greg", email: "greg@gmail.com" });
+
+//decomposition
+function foo({ name, email }: { name: string; email: string }): void {
+  console.log("foo: ", name, email);
+}
+foo(user2);
+/////////////////////////////////////////////////////
 //Arrays
 // const arr1: number[] = [3, 4];
 // arr1.push(55);
@@ -78,9 +128,9 @@
 
 //the number of elements in tuples is unknown
 
-const tuples3: [number, ...string[]] = [88, "Apple", "Banana", "Berry"];
-//const tuples3:readonly [number, ...string[]] = [88, "Apple", "Banana", "Berry"];
-console.log("tuples3: ", tuples3);
+// const tuples3: [number, ...string[]] = [88, "Apple", "Banana", "Berry"];
+// //const tuples3:readonly [number, ...string[]] = [88, "Apple", "Banana", "Berry"];
+// console.log("tuples3: ", tuples3);
 
 /////////////////////////////////////////////////////
 // //return type of data
