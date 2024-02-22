@@ -1,4 +1,90 @@
 /////////////////////////////////////////////////////
+//classes
+class Button {
+  text: string;
+  className: string[];
+}
+const b1 = new Button();
+b1.text = "Submit";
+b1.className = ["btn", "btn-success"];
+console.log("Button: ", b1);
+
+//enter data directly into the class
+
+class Header {
+  text: string = "Header 1";
+  fontSize: string = "24px";
+  className: string[] = ["h1"];
+}
+const h1 = new Header();
+console.log("Header: ", h1);
+
+//methods
+
+class Btn {
+  text: string;
+  className: string[];
+  create(): HTMLButtonElement {
+    const button = document.createElement("button");
+    button.textContent = this.text;
+    this.className.forEach(item => button.classList.add(item));
+    return button;
+  }
+}
+const b2 = new Btn();
+b2.text = "Submit";
+b2.className = ["btn", "btn-success"];
+document.body.append(b2.create());
+b2.text = "Cancel";
+b2.className = ["btn", "btn-danger"];
+document.body.append(b2.create());
+console.log("b2:", b2);
+
+//constructor
+
+class ButtonElement {
+  text: string;
+  className: string[];
+  role: string;
+  readonly type: string; //prohibit changes
+  create(): HTMLButtonElement {
+    const button = document.createElement("button");
+    button.textContent = this.text;
+    button.setAttribute("role", this.role);
+    button.setAttribute("type", this.type);
+    this.className.forEach(item => button.classList.add(item));
+    return button;
+  }
+  constructor(text: string, className: string[]) {
+    this.text = text;
+    this.className = className;
+    this.role = "button";
+  }
+}
+const b3 = new ButtonElement("Push", ["btn", "btn-primary"]);
+document.body.append(b3.create());
+const b4 = new ButtonElement("New Button", ["btn", "btn-secondary"]);
+document.body.append(b4.create());
+
+//Script
+
+class Sprint {
+  id: number;
+  courseId: number;
+  url: string;
+  order: number;
+  pay: boolean;
+  blank: string;
+  code: boolean;
+  points: number;
+  lang: string;
+  title: string;
+  text: string;
+  video: string[];
+  time: number;
+}
+//const sprint = new Sprint(object);
+/////////////////////////////////////////////////////
 //object
 // const user: { name: string; email: string } = {
 //   name: "John",
@@ -14,40 +100,40 @@
 
 //optional properties
 
-const user2: { name: string; email: string; age?: number } = {
-  name: "John",
-  email: "john@gmail.com"
-  //age: 33
-};
+// const user2: { name: string; email: string; age?: number } = {
+//   name: "John",
+//   email: "john@gmail.com"
+//   //age: 33
+// };
 
-console.log("user2: ", user2);
-//console.log("user2: ", user2.test); //error
-if ("test" in user2) {
-  console.log(1);
-} else console.log(0);
-//references to optional properties
+// console.log("user2: ", user2);
+// //console.log("user2: ", user2.test); //error
+// if ("test" in user2) {
+//   console.log(1);
+// } else console.log(0);
+// //references to optional properties
 
-console.log("user2: ", user2.age); //user2:  undefined
+// console.log("user2: ", user2.age); //user2:  undefined
 
-//object as a function argument
-function userProcess(some_var: { name: string; email: string }): void {
-  console.log("userProcess: ", some_var);
-}
-const obj: { name: string; email: string; test: boolean } = {
-  name: "John",
-  email: "LInda@gmail.com",
-  test: false
-};
-userProcess(user2);
-userProcess(obj);
-//userProcess({ name: "John", email: "LInda@gmail.com", test: false }); //error
-userProcess({ name: "Greg", email: "greg@gmail.com" });
+// //object as a function argument
+// function userProcess(some_var: { name: string; email: string }): void {
+//   console.log("userProcess: ", some_var);
+// }
+// const obj: { name: string; email: string; test: boolean } = {
+//   name: "John",
+//   email: "LInda@gmail.com",
+//   test: false
+// };
+// userProcess(user2);
+// userProcess(obj);
+// //userProcess({ name: "John", email: "LInda@gmail.com", test: false }); //error
+// userProcess({ name: "Greg", email: "greg@gmail.com" });
 
-//decomposition
-function foo({ name, email }: { name: string; email: string }): void {
-  console.log("foo: ", name, email);
-}
-foo(user2);
+// //decomposition
+// function foo({ name, email }: { name: string; email: string }): void {
+//   console.log("foo: ", name, email);
+// }
+// foo(user2);
 /////////////////////////////////////////////////////
 //Arrays
 // const arr1: number[] = [3, 4];
