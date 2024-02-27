@@ -2,146 +2,146 @@
 
 //inherit
 
-class T1 {
-  name: string = "";
-}
-class T2 extends T1 {
-  email: string = "";
-}
-const obj2 = new T2();
-console.log("obj2: ", obj2);
+// class T1 {
+//   name: string = "";
+// }
+// class T2 extends T1 {
+//   email: string = "";
+// }
+// const obj2 = new T2();
+// console.log("obj2: ", obj2);
 
-class T3 extends T2 {
-  showData(): void {
-    console.log("T3: ", this.name, this.email);
-  }
-}
-const obj3 = new T3();
-obj3.name = "Pit";
-obj3.email = "piter@gmail.com";
-obj3.showData();
+// class T3 extends T2 {
+//   showData(): void {
+//     console.log("T3: ", this.name, this.email);
+//   }
+// }
+// const obj3 = new T3();
+// obj3.name = "Pit";
+// obj3.email = "piter@gmail.com";
+// obj3.showData();
 
-class T4 extends T1 {
-  email: string = "";
-  constructor(name: string, email: string) {
-    super();
-    this.name = name;
-    this.email = email;
-  }
-  showData(): void {
-    console.log(this.name, this.email);
-  }
-  showInfo(): string {
-    return this.name + this.email;
-  }
-}
-const obj4 = new T4("Holly", "holly@gmail.com");
-obj4.showData();
+// class T4 extends T1 {
+//   email: string = "";
+//   constructor(name: string, email: string) {
+//     super();
+//     this.name = name;
+//     this.email = email;
+//   }
+//   showData(): void {
+//     console.log(this.name, this.email);
+//   }
+//   showInfo(): string {
+//     return this.name + this.email;
+//   }
+// }
+// const obj4 = new T4("Holly", "holly@gmail.com");
+// obj4.showData();
 
-class T5 extends T4 {
-  age: number = 0;
-  constructor(name: string, email: string, age: number) {
-    super(name, email);
-    this.age = age;
-  }
-  showData(): void {
-    super.showData();
-    console.log(this.age);
-  }
-  showInfo(): string {
-    const str = super.showInfo();
-    return str + this.age;
-  }
-}
-const obj5 = new T5("Nik", "nik@gmail.com", 33);
-obj5.showData();
+// class T5 extends T4 {
+//   age: number = 0;
+//   constructor(name: string, email: string, age: number) {
+//     super(name, email);
+//     this.age = age;
+//   }
+//   showData(): void {
+//     super.showData();
+//     console.log(this.age);
+//   }
+//   showInfo(): string {
+//     const str = super.showInfo();
+//     return str + this.age;
+//   }
+// }
+// const obj5 = new T5("Nik", "nik@gmail.com", 33);
+// obj5.showData();
 
-//add div
+// //add div
 
-class ElementHTML {
-  text: string;
-  tag: string = "DIV";
-  constructor(str: string) {
-    this.text = str;
-  }
-  render(): HTMLElement {
-    const div = document.createElement(this.tag);
-    div.textContent = this.text;
-    return div;
-  }
-}
-const div1 = new ElementHTML("New DIV");
-document.body.append(div1.render());
-//--------------
-class ElementHTMLCSS extends ElementHTML {
-  cssClass: string[];
-  constructor(str: string, css: string[]) {
-    super(str);
-    this.cssClass = css;
-  }
-  render(): HTMLElement {
-    const div = super.render();
-    this.cssClass.forEach(item => div.classList.add(item));
-    return div;
-  }
-}
-const div2 = new ElementHTMLCSS("New DIV with CSS", ["red", "bold"]);
-document.body.append(div2.render());
-//-------------
+// class ElementHTML {
+//   text: string;
+//   tag: string = "DIV";
+//   constructor(str: string) {
+//     this.text = str;
+//   }
+//   render(): HTMLElement {
+//     const div = document.createElement(this.tag);
+//     div.textContent = this.text;
+//     return div;
+//   }
+// }
+// const div1 = new ElementHTML("New DIV");
+// document.body.append(div1.render());
+// //--------------
+// class ElementHTMLCSS extends ElementHTML {
+//   cssClass: string[];
+//   constructor(str: string, css: string[]) {
+//     super(str);
+//     this.cssClass = css;
+//   }
+//   render(): HTMLElement {
+//     const div = super.render();
+//     this.cssClass.forEach(item => div.classList.add(item));
+//     return div;
+//   }
+// }
+// const div2 = new ElementHTMLCSS("New DIV with CSS", ["red", "bold"]);
+// document.body.append(div2.render());
+// //-------------
 
-class ElementImage extends ElementHTMLCSS {
-  src: string = "";
-  constructor(src: string, css: string[], str: string) {
-    super(str, css);
-    this.src = src;
-    this.tag = "img";
-  }
-  render(): HTMLElement {
-    const img = document.createElement(this.tag);
-    img.setAttribute("src", this.src);
-    img.setAttribute("alt", this.text);
-    this.cssClass.forEach(item => img.classList.add(item));
-    return img;
-  }
-}
+// class ElementImage extends ElementHTMLCSS {
+//   src: string = "";
+//   constructor(src: string, css: string[], str: string) {
+//     super(str, css);
+//     this.src = src;
+//     this.tag = "img";
+//   }
+//   render(): HTMLElement {
+//     const img = document.createElement(this.tag);
+//     img.setAttribute("src", this.src);
+//     img.setAttribute("alt", this.text);
+//     this.cssClass.forEach(item => img.classList.add(item));
+//     return img;
+//   }
+// }
 
-const img1 = new ElementImage(
-  "https://miro.medium.com/v2/resize:fit:480/0*3EiyyHJm-lD0sBGr.jpeg",
-  ["responsive-img", "something"],
-  "oop"
-);
-document.body.append(img1.render());
+// const img1 = new ElementImage(
+//   "https://miro.medium.com/v2/resize:fit:480/0*3EiyyHJm-lD0sBGr.jpeg",
+//   ["responsive-img", "something"],
+//   "oop"
+// );
+// document.body.append(img1.render());
 
-//-------------
+// //-------------
 
-class PictureHTML extends ElementImage {
-  source: string[];
-  constructor(src: string, css: string[], str: string, source: string[]) {
-    super(src, css, str);
-    this.source = source;
-  }
-  render(): HTMLElement {
-    const img = super.render();
-    const pictures = document.createElement("picture");
+// class PictureHTML extends ElementImage {
+//   source: string[];
+//   constructor(src: string, css: string[], str: string, source: string[]) {
+//     super(src, css, str);
+//     this.source = source;
+//   }
+//   render(): HTMLElement {
+//     const img = super.render();
+//     const pictures = document.createElement("picture");
 
-    this.source.forEach(item => {
-      const source = document.createElement("source");
-      source.setAttribute("srcset", item);
-      source.setAttribute("media", "(min-width:600px)");
-      pictures.append(source);
-    });
-    pictures.append(img);
-    return pictures;
-  }
-}
+//     this.source.forEach(item => {
+//       const source = document.createElement("source");
+//       source.setAttribute("srcset", item);
+//       source.setAttribute("media", "(min-width:600px)");
+//       pictures.append(source);
+//     });
+//     pictures.append(img);
+//     return pictures;
+//   }
+// }
 
-const pic = new PictureHTML(
-  "https://miro.medium.com/v2/resize:fit:480/0*3EiyyHJm-lD0sBGr.jpeg",
-  ["responsive-img", "something"],
-  "oop",
-  ["https://miro.medium.com/v2/resize:fit:557/1*aG520I03R_xHdbd_gz5-Rg.png"]
-);
-document.body.append(pic.render());
+// const pic = new PictureHTML(
+//   "https://miro.medium.com/v2/resize:fit:480/0*3EiyyHJm-lD0sBGr.jpeg",
+//   ["responsive-img", "something"],
+//   "oop",
+//   ["https://miro.medium.com/v2/resize:fit:557/1*aG520I03R_xHdbd_gz5-Rg.png"]
+// );
+// document.body.append(pic.render());
 /////////////////////////////////////////////////////
 //classes
 // class Button {
@@ -278,6 +278,63 @@ document.body.append(pic.render());
 //   console.log("foo: ", name, email);
 // }
 // foo(user2);
+/////////////////////////////////////////////////////
+
+//Write to the element
+
+const a1: string = "Hello User";
+document.querySelector(".out-1").textContent = a1;
+
+//we get the text from the paired tag
+const a2: string = document.querySelector(".out-2").textContent;
+console.log("a2: ", a2);
+
+const a3: number = +document.querySelector(".out-3").textContent;
+console.log("a3 is a: ", typeof a3, a3);
+
+//we get the value  from the input
+
+//const a4 = <HTMLInputElement>document.querySelector(".input");
+const a4 = document.querySelector(".input") as HTMLInputElement;
+console.log("a4 is a: ", typeof a4, a4.value);
+
+const a5 = document.querySelector(".input2") as HTMLInputElement;
+console.log("a5 is a: ", typeof a5, +a5.value);
+a5.value = "666"; //value is a string
+
+//checkbox
+
+const checkbox = document.querySelector(".input3") as HTMLInputElement;
+if (checkbox.checked) {
+  console.log("checked");
+}
+console.log("checkbox is a: ", typeof checkbox, checkbox.value);
+
+//radio
+
+const radio = document.querySelector(".input4:checked") as HTMLInputElement;
+
+console.log("radio value: ", radio.value);
+
+//select value
+
+// const select = document.querySelector("select");
+const select = document.querySelector("#select") as HTMLSelectElement;
+
+console.log("select value: ", select.value);
+select.value = "aaa";
+
+//if element doesn't exist
+
+const i8 = document.querySelector(".i-8") as HTMLInputElement | null; //or element or NULL
+
+console.log("i8: ", i8);
+//one way
+//console.log("i8: ", i8?.value); //undefined
+//second way
+if (i8 !== null) {
+  console.log("i8 value:", i8.value);
+}
 /////////////////////////////////////////////////////
 //Arrays
 // const arr1: number[] = [3, 4];
