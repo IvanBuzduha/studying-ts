@@ -1,5 +1,18 @@
 "use strict";
 /////////////////////////////////////////////////////
+//Get
+class T1 {
+    _n1 = 33;
+    _n2 = 55;
+    get n1() {
+        return this._n1;
+    }
+}
+const obj1 = new T1();
+console.log("obj1: ", obj1);
+//console.log("obj1: ", obj1._n1); //Property '_n1' is private and only accessible within class 'T1'.
+console.log("obj1: ", obj1.n1); //obj1:  33
+/////////////////////////////////////////////////////
 //inherit
 // class T1 {
 //   name: string = "";
@@ -254,43 +267,43 @@
 // foo(user2);
 /////////////////////////////////////////////////////
 //Write to the element
-const a1 = "Hello User";
-document.querySelector(".out-1").textContent = a1;
-//we get the text from the paired tag
-const a2 = document.querySelector(".out-2").textContent;
-console.log("a2: ", a2);
-const a3 = +document.querySelector(".out-3").textContent;
-console.log("a3 is a: ", typeof a3, a3);
-//we get the value  from the input
-//const a4 = <HTMLInputElement>document.querySelector(".input");
-const a4 = document.querySelector(".input");
-console.log("a4 is a: ", typeof a4, a4.value);
-const a5 = document.querySelector(".input2");
-console.log("a5 is a: ", typeof a5, +a5.value);
-a5.value = "666"; //value is a string
-//checkbox
-const checkbox = document.querySelector(".input3");
-if (checkbox.checked) {
-    console.log("checked");
-}
-console.log("checkbox is a: ", typeof checkbox, checkbox.value);
-//radio
-const radio = document.querySelector(".input4:checked");
-console.log("radio value: ", radio.value);
-//select value
-// const select = document.querySelector("select");
-const select = document.querySelector("#select");
-console.log("select value: ", select.value);
-select.value = "aaa";
-//if element doesn't exist
-const i8 = document.querySelector(".i-8"); //or element or NULL
-console.log("i8: ", i8);
-//one way
-//console.log("i8: ", i8?.value); //undefined
-//second way
-if (i8 !== null) {
-    console.log("i8 value:", i8.value);
-}
+// const a1: string = "Hello User";
+// document.querySelector(".out-1").textContent = a1;
+// //we get the text from the paired tag
+// const a2: string = document.querySelector(".out-2").textContent;
+// console.log("a2: ", a2);
+// const a3: number = +document.querySelector(".out-3").textContent;
+// console.log("a3 is a: ", typeof a3, a3);
+// //we get the value  from the input
+// //const a4 = <HTMLInputElement>document.querySelector(".input");
+// const a4 = document.querySelector(".input") as HTMLInputElement;
+// console.log("a4 is a: ", typeof a4, a4.value);
+// const a5 = document.querySelector(".input2") as HTMLInputElement;
+// console.log("a5 is a: ", typeof a5, +a5.value);
+// a5.value = "666"; //value is a string
+// //checkbox
+// const checkbox = document.querySelector(".input3") as HTMLInputElement;
+// if (checkbox.checked) {
+//   console.log("checked");
+// }
+// console.log("checkbox is a: ", typeof checkbox, checkbox.value);
+// //radio
+// const radio = document.querySelector(".input4:checked") as HTMLInputElement;
+// console.log("radio value: ", radio.value);
+// //select value
+// // const select = document.querySelector("select");
+// const select = document.querySelector("#select") as HTMLSelectElement;
+// console.log("select value: ", select.value);
+// select.value = "aaa";
+// //if element doesn't exist
+// const i8 = document.querySelector(".i-8") as HTMLInputElement | null; //or element or NULL
+// console.log("i8: ", i8);
+// //one way
+// //console.log("i8: ", i8?.value); //undefined
+// //second way
+// if (i8 !== null) {
+//   console.log("i8 value:", i8.value);
+// }
 /////////////////////////////////////////////////////
 //Arrays
 // const arr1: number[] = [3, 4];
