@@ -4,14 +4,33 @@
 class T1 {
     _n1 = 33;
     _n2 = 55;
+    access = false;
+    constructor(a) {
+        this.access = a;
+    }
     get n1() {
-        return this._n1;
+        return this.access ? this._n1 : 0;
+    }
+    get n2() {
+        return this.access ? this._n2 : 0;
+        // return this.access ? this._n2 + this._n1 : 0;
+    }
+    set n1(a) {
+        this._n1 = a;
     }
 }
-const obj1 = new T1();
+const obj1 = new T1(true); // if false return 0
 console.log("obj1: ", obj1);
 //console.log("obj1: ", obj1._n1); //Property '_n1' is private and only accessible within class 'T1'.
 console.log("obj1: ", obj1.n1); //obj1:  33
+obj1.n1 = 999;
+console.log("obj1: ", obj1.n1); //obj1:  999
+class T2 extends T1 {
+}
+const obj2 = new T2(true);
+console.log("obj2: ", obj2.n2);
+obj2.n1 = 1111;
+console.log("obj2: ", obj2.n1); //obj2:  1111
 /////////////////////////////////////////////////////
 //inherit
 // class T1 {
