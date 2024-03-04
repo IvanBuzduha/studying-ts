@@ -2,7 +2,7 @@
 //Get
 class T1 {
   private _n1: number = 33;
-  private _n2: number = 55;
+  private _n2: number = 77;
   public access: boolean = false;
   constructor(a: boolean) {
     this.access = a;

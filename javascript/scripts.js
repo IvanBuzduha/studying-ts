@@ -3,7 +3,7 @@
 //Get
 class T1 {
     _n1 = 33;
-    _n2 = 55;
+    _n2 = 77;
     access = false;
     constructor(a) {
         this.access = a;
