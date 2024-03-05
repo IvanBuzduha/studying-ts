@@ -1,35 +1,77 @@
 /////////////////////////////////////////////////////
 //Get
-class T1 {
-  private _n1: number = 333;
-  private _n2: number = 77;
-  public access: boolean = false;
-  constructor(a: boolean) {
-    this.access = a;
-  }
-  public get n1(): number {
-    return this.access ? this._n1 : 0;
-  }
-  public get n2(): number {
-    return this.access ? this._n2 : 0;
-    // return this.access ? this._n2 + this._n1 : 0;
-  }
-  public set n1(a: number) {
-    this._n1 = a;
-  }
-}
-const obj1 = new T1(true); // if false return 0
-console.log("obj1: ", obj1);
-//console.log("obj1: ", obj1._n1); //Property '_n1' is private and only accessible within class 'T1'.
-console.log("obj1: ", obj1.n1); //obj1:  33
-obj1.n1 = 999;
-console.log("obj1: ", obj1.n1); //obj1:  999
+// class T1 {
+//   private _n1: number = 333;
+//   private _n2: number = 77;
+//   public access: boolean = false;
+//   constructor(a: boolean) {
+//     this.access = a;
+//   }
+//   public get n1(): number {
+//     return this.access ? this._n1 : 0;
+//   }
+//   public get n2(): number {
+//     return this.access ? this._n2 : 0;
+//     // return this.access ? this._n2 + this._n1 : 0;
+//   }
+//   public set n1(a: number) {
+//     this._n1 = a;
+//   }
+// }
+// const obj1 = new T1(true); // if false return 0
+// // console.log("obj1: ", obj1);
+// // //console.log("obj1: ", obj1._n1); //Property '_n1' is private and only accessible within class 'T1'.
+// // console.log("obj1: ", obj1.n1); //obj1:  33
+// // obj1.n1 = 999;
+// // console.log("obj1: ", obj1.n1); //obj1:  999
 
-class T2 extends T1 {}
-const obj2 = new T2(true);
-console.log("obj2: ", obj2.n2);
-obj2.n1 = 1111;
-console.log("obj2: ", obj2.n1); //obj2:  1111
+// class T2 extends T1 {
+//   public get n1(): number {
+//     return super.n1;
+//   }
+//   public set n1(a: number) {
+//     super.n1 = a;
+//   }
+// }
+// // const obj2 = new T2(true);
+// // console.log("obj2: ", obj2.n2);
+// // // obj2.n1 = 1111;
+// // console.log("obj2: ", obj2.n1); //obj2:  1111
+// const obj3 = new T2(true);
+// obj3.n1 = 3333;
+// console.log("obj3.n1:", obj3.n1);
+
+// class T3 {
+//   protected _n1: number = 666;
+//   protected _n2: number = 888;
+
+//   public get n1(): number {
+//     return this._n1;
+//   }
+//   public get n2(): number {
+//     return this.n2;
+//   }
+//   public set n1(a: number) {
+//     this._n1 = a;
+//   }
+// }
+// const obj4 = new T3();
+// console.log("obj4.n1:", obj4.n1);
+// obj4.n1 = 444;
+// console.log("obj4.n1:", obj4.n1);
+
+// class T4 extends T3 {
+//   public get n1(): number {
+//     return this.n1;
+//   }
+//   public set n1(a: number) {
+//     this._n1 = a;
+//   }
+// }
+// const obj5 = new T3();
+// console.log("obj5.n1:", obj5.n1);
+// obj5.n1 = 444;
+// console.log("obj5.n1:", obj5.n1);
 /////////////////////////////////////////////////////
 
 //inherit
