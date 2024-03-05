@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////
 //Get
 class T1 {
-  private _n1: number = 33;
+  private _n1: number = 333;
   private _n2: number = 77;
   public access: boolean = false;
   constructor(a: boolean) {
